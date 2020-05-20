@@ -2,14 +2,12 @@
 # -*- coding: utf-8 -*-
 
 # Есть словарь кодов товаров
-
 goods = {
     'Лампа': '12345',
     'Стол': '23456',
     'Диван': '34567',
     'Стул': '45678',
 }
-
 # Есть словарь списков количества товаров на складе.
 
 store = {
@@ -30,18 +28,47 @@ store = {
         {'quantity': 43, 'price': 97},
     ],
 }
-
+lamps_cost = store[goods['Лампа']][0]['quantity'] * store[goods['Лампа']][0]['price']
 # Рассчитать на какую сумму лежит каждого товара на складе
 # например для ламп
+lamp_code=goods['Лампа']
+lamps_item=store[lamp_code][0]
+lamps_quantity=lamps_item['quantity']
+lamps_price=lamps_item['price']
+lamps_cost=(lamps_quantity)*(lamps_price)
 
-lamps_cost = store[goods['Лампа']][0]['quantity'] * store[goods['Лампа']][0]['price']
-# или проще (/сложнее ?)
-lamp_code = goods['Лампа']
-lamps_item = store[lamp_code][0]
-lamps_quantity = lamps_item['quantity']
-lamps_price = lamps_item['price']
-lamps_cost = lamps_quantity * lamps_price
-print('Лампа -', lamps_quantity, 'шт, стоимость', lamps_cost, 'руб')
+print('Количество ламп - ', lamps_quantity, 'шт., стоимость -', lamps_cost, 'рублей.')
+
+table_code=goods['Стол']
+table_item=store[table_code][0]
+table_item1=store[table_code][1]
+table_quantity=table_item['quantity']
+table_quantity1=table_item1['quantity']
+table_price=table_item['price']
+table_price1=table_item1['price']
+table_cost=(table_quantity)*(table_price)+(table_quantity1)*(table_price1)
+
+print('Количество столов - ', table_quantity+table_quantity1, 'шт., стоимость -', table_cost, 'рублей.')
+
+sofa_quantity=(store[goods['Диван']][0]['quantity'])
+sofa_quantity1=(store[goods['Диван']][1]['quantity'])
+sofa_price=(store[goods['Диван']][0]['price'])
+sofa_price1=(store[goods['Диван']][1]['price'])
+sofa_cost=(sofa_quantity)*(sofa_price)+(sofa_quantity1)*(sofa_price1)
+
+print('Количество диванов - ', sofa_quantity+sofa_quantity1, 'шт., стоимость -', sofa_cost, 'рублей.')
+
+chair_quantity=(store[goods['Стул']][0]['quantity'])
+chair_quantity1=(store[goods['Стул']][1]['quantity'])
+chair_quantity2=(store[goods['Стул']][2]['quantity'])
+chair_price=(store[goods['Стул']][0]['price'])
+chair_price1=(store[goods['Стул']][1]['price'])
+chair_price2=(store[goods['Стул']][2]['price'])
+chair_cost=(chair_quantity)*(chair_price)+(chair_quantity1)*(chair_price1)+(chair_quantity2)*(chair_price2)
+
+print('Количество стульев - ', chair_quantity+chair_quantity1+chair_quantity2, 'шт., стоимость -', chair_cost, 'рублей.')
+
+
 
 # Вывести стоимость каждого товара на складе: один раз распечать сколько всего столов, стульев и т.д. на складе
 # Формат строки <товар> - <кол-во> шт, стоимость <общая стоимость> руб
