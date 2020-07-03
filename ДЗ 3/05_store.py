@@ -37,7 +37,19 @@ store = {
 # Формат строки вывода: "<товар> - <кол-во> шт, стоимость <общая стоимость> руб"
 #
 # Алгоритм должен получиться приблизительно такой:
-#
+
+
+for item in goods:
+    print('На складе есть товар', item, 'с кодом', goods[item])
+    item_quantity = 0
+    item_price = 0
+    item_value = 0
+    item_code = goods[item]
+    for calculations in store[item_code]:
+        item_quantity += calculations['quantity']
+        item_value += calculations['quantity']*calculations['price']
+
+    print(item, 'Количество -', item_quantity, ', Общая стоимость -', item_value, 'руб.')
 # цикл for по товарам с получением кода и названия товара
 #     инициализация переменных для подсчета количества и стоимости товара
 #     получение списка на складе по коду товара

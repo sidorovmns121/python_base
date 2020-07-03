@@ -8,6 +8,9 @@
 # Формат вывода:
 #   Целочисленное деление ХХХ на YYY дает ZZZ
 
-a, b = 179, 37
-
-# TODO здесь ваш код
+a, b = 179, 39
+result = 0
+while a > b > 0:
+    a = a - b
+    result += 1
+print(result)
